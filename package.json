@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "FORCE_COLOR=1 node script/verify-commit.js",
+      "pre-push": "npm test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/s-fire/TS-Challenge.git"
@@ -18,6 +25,7 @@
   },
   "homepage": "https://github.com/s-fire/TS-Challenge#readme",
   "devDependencies": {
+    "husky": "^8.0.1",
     "typescript": "^4.7.2"
   },
   "dependencies": {
