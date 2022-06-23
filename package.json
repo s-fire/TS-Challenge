@@ -4,14 +4,13 @@
   "description": "TS-Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "FORCE_COLOR=1 node script/verify-commit.js",
-      "pre-push": "npm test"
-    }
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,10 @@
   },
   "homepage": "https://github.com/s-fire/TS-Challenge#readme",
   "devDependencies": {
-    "husky": "^8.0.1",
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.2",
     "typescript": "^4.7.2"
   },
   "dependencies": {
